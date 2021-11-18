@@ -84,13 +84,5 @@ for (lamda_i in c(1,100,1000)){
 }
 
 
-# MSE_train_vec [1] 515.2628 520.8695 521.2756
-# MSE_test_vec [1] 512.3771 516.4353 516.9274
-# lamda = 1 achieves the smallest MSE for both training and test data, so it is most appropriate.
-# DF_vec [1] 13.862811  9.939085  5.643351
-# In machine learning, degrees of freedom is the number of parameters of a model.
-# The models with lamda equal to 1, 100 and 1000 corresponds to models with around 14, 10, and 6 effective parameters.
-# They becomes less complexed with increacing lamda. As the dataset is from 42 people, 42 is larger than all three degree of freedoms. 
-# In this way, it is fine to choose lamda = 1, which achieves lowest MSE for both training and test data. 
 
 
