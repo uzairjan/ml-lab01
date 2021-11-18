@@ -68,16 +68,19 @@ Cal_MSE <- function(a,b){
 MSE_train_vec = c()
 MSE_test_vec = c()
 DF_vec = c()
+Theta_matrix = matrix(0,nrow = dim(X)[2], ncol = 3)
 
-
+col_i = 1
 for (lamda_i in c(1,100,1000)){
   result_RO = RidgeOpt(lamda_i,X,Y)
   theta = matrix(result_RO$par[-1],nrow = length(result_RO$par)-1, ncol = 1)
+  Theta_matrix[,col_i] = theta
   Y_tilda_train = X %*% theta
   MSE_train_vec = c(MSE_train_vec, Cal_MSE(Y_tilda_train,Y))
   Y_tilda_test = X_test %*% theta
   MSE_test_vec = c(MSE_test_vec, Cal_MSE(Y_tilda_test, Y_test))
   DF_vec = c(DF_vec, DF(lamda_i,X))
+  col_i = col_i+1
 }
 
 
